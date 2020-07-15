@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="www.thymeleaf.org">
+<head>
+	<title> City Info </title>
+	
+	
+</head>
+<body>
+	
+<div style="background-color : #F8F8F8;" >
+	<h1 th:text="${cityInfo.name}"> </h1>
+
+	<table th:object="${cityInfo}">
+		<tr> 
+			<td> ID </td>
+			<td th:text="${cityInfo.id}">     </td>
+		</tr>
+		
+		<tr>
+			<td> Name </td>
+			<td th:text="${cityInfo.name}">  </d>
+		</tr>
+		
+		<tr>
+			<td> Country Code </td>
+			<td th:text="${cityInfo.countryCode}">  </d>
+		</tr>
+		
+		<tr> 
+			<td> Country Name </td>
+			<td th:text="${cityInfo.countryName}">  </d>
+		</tr>
+		
+		<tr>
+			<td> District </td>
+			<td th:text="${cityInfo.district}">  </d>
+		</tr>
+		
+		<tr>
+			<td> Population </td>
+			<td th:text="${cityInfo.population}">  </d>
+		</tr>
+		
+		<tr>
+			<td> Local Weather </td>
+			<td th:text="${cityInfo.temp} "> °F </d>
+		</tr>
+		
+		<tr>
+			<td> Local Time </td>
+			<td th:text="${cityInfo.time}">  </d>
+		</tr>
+		
+
+	</table>
+	<br/> <br/>
+ 
+	<form action="#" th:action="@{/cities/reservation}" method="post">
+			<p>For a fabulous weekend get away for 2 to <span th:text="${cityInfo.name}"></span> sign up here.</p>
+			
+			<input type="hidden" id="city" name="city" th:value="${cityInfo.name}">
+			Email <input type="email" id="email" name="email"/><br /><br />
+			
+			<input type="radio" id="luxury" name="level" value="Luxury"> Luxury $1000 <br />			
+			<input type="radio" id="intermediate" name="level" value="Intermediate"> Intermediate $500 <br />
+			<input type="radio" id="economy" name="level" value="Economy"> Economy $350 <br /><br />
+			<input type="submit" value="Submit" />
+	</form>
+
+</div>
+</body>
+</html>
