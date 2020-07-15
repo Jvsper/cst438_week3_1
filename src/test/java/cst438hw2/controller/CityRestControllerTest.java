@@ -34,7 +34,7 @@ import cst438hw2.service.CityService;
 
 import org.springframework.test.context.junit4.SpringRunner;
 
-@RunWith(SpringRunner.class)
+@RunWith(SpringRunner.class) // Ramon - imported required library
 @WebMvcTest(CityRestController.class)
 public class CityRestControllerTest {
 
